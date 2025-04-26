@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ service_name|title }}</title>
+     {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'static/recipes/css/style.css' %}">
+</head>
+
+<style>
+/* style.css */
+.service-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.service-detail img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.service-detail-content {
+    padding: 20px;
+    max-width: 50%;
+}
+
+.service-detail-content h1 {
+    color: #0056b3;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.service-detail-content p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.service-detail-content .btn {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.service-detail-content .btn:hover {
+    background-color: #003d82;
+}
+
+/* Community Recipes Section Styles */
+.community-recipes {
+    background-color: #f8f9fa;
+}
+
+.community-recipes .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'index' %}">Food Bites</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'submit_recipe' %}">Submit Recipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'category_list' %}">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'chat_room' 'general' %}">Chat Room</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-secondary text-white" href="{% url 'register' %}">Register</a>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+<section class="community-recipes">
+    <div class="service-detail">
+        {% if service_name == "recipe-collection" %}
+            <img src="{% static 'images/log.jpg' %}" alt="Recipe collection">
+            <div class="service-detail-content">
+                <h1>Recipe collection</h1>
+                <p>Discover a vast array of recipes from various cultures and cuisines, handpicked to tantalize your taste buds. From comforting classics to exotic dishes, our recipe collection ensures you never run out of culinary inspiration.</p>
+                <a href="#" class="btn">Schedule appointment</a>
+            </div>
+    </div>
+</section>
+        {% elif service_name == "user-interaction" %}
+            <img src="{% static 'images/bak1.jpg' %}" class="card-img-top" alt="User interaction">
+            <div class="service-detail-content">
+                <h1>User interaction</h1>
+                <p>Connect with fellow foodies, share cooking tips, and swap recipe ideas on our platform. Experience the joy of interacting with like-minded individuals passionate about gastronomy and culinary adventures.</p>
+                <a href="#" class="btn">Schedule appointment</a>
+            </div>
+        {% elif service_name == "flavor-profiles" %}
+            <img src="{% static 'images/ink.jpg' %}" alt="Flavor Profiles">
+            <div class="service-detail-content">
+                <h1>Flavor profiles</h1>
+                <p>Delve into the world of flavors with detailed descriptions of taste profiles in each recipe. Enhance your palate with a rich tapestry of tastes and aromas, making meal planning and grocery shopping a delightful experience.</p>
+                <a href="#" class="btn">Schedule appointment</a>
+            </div>
+        {% elif service_name == "recipe-modifications" %}
+            <img src="{% static 'images/img.png' %}" alt="Recipe Modifications">
+            <div class="service-detail-content">
+                <h1>Recipe modifications</h1>
+                <p>Tailor recipes to your liking by making personalized modifications to ingredients and cooking methods. Create culinary masterpieces that reflect your unique flavor preferences and dietary requirements with ease.</p>
+                <a href="#" class="btn">Schedule appointment</a>
+            </div>
+        {% elif service_name == "cooking-experiences" %}
+            <img src="{% static 'images/img_7.jpg' %}" alt="Cooking Experiences">
+            <div class="service-detail-content">
+                <h1>Cooking experiences</h1>
+                <p>Embark on a culinary journey by sharing your cooking triumphs and challenges with our community. Learn from others' experiences, gain new insights, and elevate your cooking skills while fostering a sense of camaraderie and mutual learning.</p>
+                <a href="#" class="btn">Schedule appointment</a>
+            </div>
+        {% elif service_name == "meal-prep-assistance" %}
+            <img src="{% static 'images/prep.jpg' %}" alt="Meal Prep Assistance">
+            <div class="service-detail-content">
+                <h1>Meal prep assistance</h1>
+                <p>Streamline your meal prep routine with expert advice on planning, organizing, and executing meals efficiently. Let us guide you through the process, offering time-saving techniques and innovative meal prep strategies for a hassle-free cooking experience.</p>
+                <a href="#" class="btn">Schedule appointment</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
